@@ -1,0 +1,62 @@
+﻿@model FlightService.Web.Models.PassengerViewModel
+
+@{
+    ViewData["Title"] = "Edit";
+
+}
+
+<div class="card-header">
+    <h2>Edit</h2>
+</div>
+<br />
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit" class="action-center">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="firstname" class="control-label"></label>
+                <input asp-for="firstname" class="form-control" />
+                <span asp-validation-for="firstname" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="lastname" class="control-label"></label>
+                <input asp-for="lastname" class="form-control" />
+                <span asp-validation-for="lastname" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="job" class="control-label"></label>
+                <input asp-for="job" class="form-control" />
+                <span asp-validation-for="job" class="text-danger"></span>
+            </div>
+
+
+            <div class="form-group">
+                <label asp-for="email" class="control-label"></label>
+                <input asp-for="email" class="form-control" />
+                <span asp-validation-for="email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="age" class="control-label"></label>
+                <input asp-for="age" class="form-control" />
+                <span asp-validation-for="age" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Edit" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+<br />
+
+<div class="action-center">
+    <a asp-action="Index" class="details">Back to List</a>
+    @Html.ActionLink("Back to Details", "Details", new { Id = Model.Id }, new { @class = "details" })
+
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

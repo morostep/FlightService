@@ -1,0 +1,81 @@
+﻿
+@model FlightService.Web.Models.FlightViewModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div class="card-header">
+    <h2>Details</h2>
+</div>
+
+<div> 
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.flightNumber)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.flightNumber)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Airline)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Airline)
+        </dd>
+
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.departureTime)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.departureTime)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.departureDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.departureDate)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.departureAirport)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.departureAirport)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.arrivalTime)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.arrivalTime)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.arrivalDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.arrivalDate)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.arrivalAirport)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.arrivalAirport)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.passengerLimit)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.passengerLimit)
+        </dd>
+    </dl>
+</div>
+<br />
+<br />
+
+<div class="action-center">
+
+    @Html.ActionLink("Edit", "Edit", new { Id = Model.Id }, new { @class = "details" }) |
+    @Html.ActionLink("Delete", "Delete", new { Id = Model.Id }, new { @class = "details" }) |
+    @Html.ActionLink("Check Passengers", "CheckPassengers", new { Id = Model.Id }, new { @class = "details" }) |
+
+    <a asp-action="Index" class="details">Back to List</a>
+</div>

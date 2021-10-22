@@ -1,0 +1,45 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+@model IEnumerable<FlightService.Web.Models.PassengerViewModel>
+
+
+@{
+    ViewData["Title"] = "Passengers";
+}
+
+<div class="card-header">
+    <h2>View All Passengers</h2>
+</div>
+
+<br />
+<div class="card-main">
+    <a class="navbar-brand" asp-area="" asp-controller="Passengers" asp-action="Create">Add Passenger</a>
+</div>
+<br />
+<div class="text-center">
+
+
+    @foreach (var passenger in Model)
+    {
+
+        <div class="leftcolumn">
+            <div class="card">
+                <h1><img src="~/images/passenger.png" width="50" />@Html.DisplayFor(modelitem => passenger.firstname) @Html.DisplayFor(modelitem => passenger.lastname) </h1>
+                <h4><img src="~/images/work.png" />@Html.DisplayFor(modelitem => passenger.job)</h4>
+                <h4><img src="~/images/email.png" />@Html.DisplayFor(modelitem => passenger.email)</h4>
+
+                <h4>Age: @Html.DisplayFor(modelitem => passenger.age)</h4>
+
+
+                <p style="text-align:right;">@Html.ActionLink("Details", "Details", new { Id = passenger.Id }, new { @class = "details" })</p>
+            </div>
+
+        </div>
+
+
+
+    }
+
+</div>

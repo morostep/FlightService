@@ -1,0 +1,58 @@
+﻿
+@model FlightService.Web.Models.PassengerViewModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div class="card-header">
+    <h2>Details</h2>
+</div>
+<br />
+
+<div>
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.firstname)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.firstname)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.lastname)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.lastname)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.email)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.email)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.job)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.job)
+        </dd>
+
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.age)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.age)
+        </dd>
+    </dl>
+</div>
+<br />
+
+<div class="action-center">
+    @Html.ActionLink("Edit", "Edit", new { Id = Model.Id }, new { @class = "details" }) |
+    @Html.ActionLink("Delete", "Delete", new { Id = Model.Id }, new { @class = "details" }) |
+    @Html.ActionLink("Book a Flight", "BookFlight", new { Id = Model.Id }, new { @class = "details" }) |
+
+    @Html.ActionLink("Check Flights", "CheckFlight", new { Id = Model.Id }, new { @class = "details" }) |
+
+    <a asp-action="Index" class="details">Back to List</a>
+</div>

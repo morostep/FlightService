@@ -1,0 +1,40 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+@model IEnumerable<FlightService.Web.Models.BookingPassengerViewModel>
+
+
+@{
+    ViewData["Title"] = "CheckPassengers";
+}
+<div class="card-header">
+    <h2>View All Passengers</h2>
+</div>
+<div class="text-center">
+
+   
+    @foreach (var passenger in Model)
+    {
+
+        <div class="leftcolumn">
+            <div class="card">
+                <h1>REF: @Html.DisplayFor(modelitem => passenger.bookingNumber)</h1>
+
+                <h2><img src="~/images/passenger.png" width="50" />@Html.DisplayFor(modelitem => passenger.firstname) @Html.DisplayFor(modelitem => passenger.lastname) </h2>
+                <h4><img src="~/images/work.png" />@Html.DisplayFor(modelitem => passenger.job)</h4>
+                <h4><img src="~/images/email.png" />@Html.DisplayFor(modelitem => passenger.email)</h4>
+
+                <h4>Age: @Html.DisplayFor(modelitem => passenger.age)</h4>
+            </div>
+        </div>
+    }
+    <br /><br />
+    <div class="action-center">
+
+        <a asp-action="Index" class="details">Back to List</a>
+        @Html.ActionLink("Back to Details", "Details", new { Id = ViewBag.Id }, new { @class = "details" })
+
+    </div>
+
+</div>

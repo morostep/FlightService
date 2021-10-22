@@ -1,0 +1,61 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+@model IEnumerable<FlightService.Web.Models.FlightViewModel>
+
+
+@{
+    ViewData["Title"] = "Flights";
+}
+<div class="card-header">
+    <h2>Book a Flight</h2>
+</div>
+<div class="text-center">
+
+
+    @foreach (var flight in Model)
+    {
+        <div class="leftcolumn">
+            <div class="card">
+                <h3><img src="~/images/airline.png" />@Html.DisplayFor(modelitem => flight.flightNumber)</h3>
+                <h4>@Html.DisplayFor(modelitem => flight.Airline)</h4>
+
+                <h5>@Html.DisplayFor(modelitem => flight.departureTime) - @Html.DisplayFor(modelitem => flight.arrivalTime)</h5>
+                @if (flight.departureDate.Equals(flight.arrivalDate))
+                {
+                    <p>@Html.DisplayFor(modelitem => flight.arrivalDate)</p>
+
+                }
+                else
+                {
+                    <p>@Html.DisplayFor(modelitem => flight.departureDate) - @Html.DisplayFor(modelitem => flight.arrivalDate)</p>
+
+                }
+                <p><strong>@Html.DisplayFor(modelitem => flight.departureAirport)</strong> to <strong>@Html.DisplayFor(modelitem => flight.arrivalAirport)</strong></p>
+
+                @if (flight.passengerAmount < flight.passengerLimit)
+                {
+                    <p>Passenger Limt: @Html.DisplayFor(modelitem => flight.passengerLimit) </p>
+                    <p style="text-align:right;">@Html.ActionLink("Book Flight", "BookFlights", new { FlightId = flight.Id, PassengerId = ViewBag.Id }, new { @class = "details" })</p>
+                }
+                else
+                {
+                    <p style="color:red;">Full</p>
+
+                }
+            </div>
+
+        </div>
+
+
+    }
+    <br /><br />
+          <div class="action-center">
+
+              <a asp-action="Index" class="details">Back to List</a>
+              @Html.ActionLink("Back to Details", "Details", new { Id = ViewBag.Id }, new { @class = "details" })
+
+          </div>
+
+</div>

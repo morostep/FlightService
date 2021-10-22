@@ -1,0 +1,38 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+<div class="card-header">
+    <h2 class="display-4">Welcome to the Flight Service</h2>
+
+</div>
+<div class="text-center">
+    
+    <br />
+    <br />
+
+    <div class="card">
+        <h2 class="display-4">Flights</h2>
+
+        <a asp-action="Flights" class="details">View Flights</a>
+        <br />
+        <br />
+        <br />
+        <a asp-action="AddFlight" class="details">Add Flight</a>
+        <br />
+        <br />
+    </div>
+    <div class="card">
+
+        <h2 class="display-4">Passengers</h2>
+
+        <a asp-action="Passengers" class="details">View Passengers</a>
+        <br />
+        <br />
+        <br />
+
+        <a asp-action="AddPassenger" class="details">Add Passenger</a>
+        <br />
+        <br />
+    </div>
+
+</div>

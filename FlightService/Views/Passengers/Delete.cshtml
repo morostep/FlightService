@@ -1,0 +1,62 @@
+﻿
+@model FlightService.Web.Models.PassengerViewModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<div class="card-header">
+    <h2>Delete</h2>
+</div>
+<br />
+<div class="card">
+    <h3>Are you sure you want to delete this?</h3>
+</div>
+<br />
+
+<div>
+    <dl class="row">
+
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.firstname)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.firstname)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.lastname)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.lastname)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.email)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.email)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.job)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.job)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.age)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.age)
+        </dd>
+    </dl>
+</div>
+<br />
+
+<div class="action-center">
+    <form asp-action="DeleteConfirm">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Delete" class="details" style="background-color:red;"/>
+        @Html.ActionLink("Back to Details", "Details", new { Id = Model.Id }, new { @class = "details" })
+
+        <a asp-action="Index" class="details">Back to List</a>
+    </form>
+</div>
